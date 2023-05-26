@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_admin_apartments"
+            android:icon="@drawable/ic_menu_apartment_24"
+            android:title="Daugiabučiai" />
+
+        <item
+            android:id="@+id/nav_admin_survey"
+            android:icon="@drawable/ic_menu_survey_24"
+            android:title="Apklausos" />
+        <item
+            android:id="@+id/nav_admin_ad"
+            android:icon="@drawable/ic_menu_news_24"
+            android:title="Naujienos" />
+        <item
+            android:id="@+id/nav_admin_request"
+            android:icon="@drawable/ic_menu_request_24"
+            android:title="Užklausos" />
+
+
+    </group>
+</menu>

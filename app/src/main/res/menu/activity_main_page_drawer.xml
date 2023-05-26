@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home_page"
+            android:icon="@drawable/ic_menu_home_24"
+            android:title="Pagrindinis" />
+        <item
+            android:id="@+id/nav_requests"
+            android:icon="@drawable/ic_menu_request_24"
+            android:title="Užklausos" />
+        <item
+            android:id="@+id/nav_survey"
+            android:icon="@drawable/ic_menu_survey_24"
+            android:title="Apklausos" />
+
+        <item
+            android:id="@+id/nav_ad"
+            android:icon="@drawable/ic_menu_news_24"
+            android:title="Naujienos" />
+
+        <item
+            android:id="@+id/nav_forum"
+            android:icon="@drawable/ic_menu_forum_24"
+            android:title="Forumas" />
+        <item
+            android:id="@+id/nav_user_profile"
+            android:icon="@drawable/ic_menu_settings_24"
+            android:title="Paskyros nustatymai" />
+    </group>
+</menu>

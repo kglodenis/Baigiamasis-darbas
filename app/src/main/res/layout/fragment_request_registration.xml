@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawerLayout2"
+    android:layout_width="409dp"
+    android:layout_height="729dp"
+    android:layout_marginTop="65dp"
+    android:fillViewport="true"
+    tools:context=".fxControllers.ui.request.RequestRegistrationFragment"
+    tools:layout_editor_absoluteX="1dp"
+    tools:layout_editor_absoluteY="1dp">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <EditText
+            android:id="@+id/requestDescriptionField"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/edit_field"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="Aprašymas"
+            android:inputType="textMultiLine"
+            android:paddingStart="12dp"
+            android:paddingTop="12dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contactPhoneField" />
+
+
+        <EditText
+            android:id="@+id/fullNameField"
+            android:layout_width="355dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/edit_field"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingStart="12dp"
+            android:textColor="#8D605D5D"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+
+        <Button
+            android:id="@+id/uploadFile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#7f5539"
+            android:text="Įkelti nuotrauką"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.103"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/requestDescriptionField" />
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#7f5539"
+            android:text="Užregistruoti"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/uploadFile" />
+
+        <EditText
+            android:id="@+id/requestAddressField"
+            android:layout_width="355dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/edit_field"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingStart="12dp"
+            android:textColor="#8D605D5D"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fullNameField" />
+
+        <Spinner
+            android:id="@+id/typeSpinner"
+            android:layout_width="355dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/edit_field"
+            android:paddingStart="12dp"
+            android:spinnerMode="dropdown"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/requestAddressField" />
+
+        <EditText
+            android:id="@+id/contactPhoneField"
+            android:layout_width="355dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/edit_field"
+            android:ems="10"
+            android:hint="Kontaktinis telefono numeris"
+            android:inputType="textPersonName"
+            android:paddingStart="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/typeSpinner" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="Ištikus avarijai, skambinkite bet kuriuo paros metu tel. +37070015213. Užpildykite formą, norėdami užregistruoti įvykį ar gedimą. Įprastai atsakymus pateikiame per 3 d.d. nurodytu kontaktiniu telefono numeriu."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/uploadedPhotoLink"
+            android:layout_width="193dp"
+            android:layout_height="22dp"
+            android:layout_marginTop="32dp"
+            android:text="Nėra pridėtų nuotraukų"
+            android:textSize="16sp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.368"
+            app:layout_constraintStart_toEndOf="@+id/uploadFile"
+            app:layout_constraintTop_toBottomOf="@+id/requestDescriptionField" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

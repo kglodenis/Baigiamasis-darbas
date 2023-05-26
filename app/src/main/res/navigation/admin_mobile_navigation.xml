@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/admin_mobile_navigation"
+    app:startDestination="@+id/nav_admin_apartments">
+
+    <fragment
+        android:id="@+id/nav_home_page"
+        android:name="com.example.baigiamasisdarbas.fxControllers.adminUi.adminHomePage.AdminHomePage"
+
+        tools:layout="@layout/fragment_admin_home_page" />
+    <fragment
+        android:id="@+id/nav_admin_survey_creation"
+        android:name="com.example.baigiamasisdarbas.fxControllers.adminUi.adminSurvey.AdminSurveyCreationFragment"
+        android:label="Apklausos kūrimas"
+        tools:layout="@layout/fragment_admin_survey_creation">
+        <action
+            android:id="@+id/action_nav_admin_survey_creation_to_nav_admin_survey"
+            app:destination="@id/nav_admin_survey" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_admin_survey_information"
+        android:name="com.example.baigiamasisdarbas.fxControllers.adminUi.adminSurvey.AdminSurveyInformationFragment"
+        android:label="Apklausos informacija"
+        tools:layout="@layout/fragment_admin_survey_information">
+
+        <action
+            android:id="@+id/action_nav_admin_survey_information_to_nav_admin_survey"
+            app:destination="@id/nav_admin_survey" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_admin_survey"
+        android:name="com.example.baigiamasisdarbas.fxControllers.adminUi.adminSurvey.AdminSurveyFragment"
+        android:label="Apklausos"
+        tools:layout="@layout/fragment_admin_survey">
+        <action
+            android:id="@+id/action_nav_admin_survey_to_nav_admin_survey_creation"
+            app:destination="@id/nav_admin_survey_creation" />
+        <action
+            android:id="@+id/action_nav_admin_survey_to_nav_admin_survey_information"
+            app:destination="@id/nav_admin_survey_information" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_admin_ad"
+        android:name="com.example.baigiamasisdarbas.fxControllers.adminUi.adminAds.AdminAdFragment"
+        android:label="Naujienos"
+        tools:layout="@layout/fragment_admin_ad">
+        <action
+            android:id="@+id/action_nav_admin_ad_to_nav_admin_ad_create"
+            app:destination="@id/nav_admin_ad_create" />
+        <action
+            android:id="@+id/action_nav_admin_ad_to_nav_admin_ad_information"
+            app:destination="@id/nav_admin_ad_information" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_admin_ad_information"
+        android:name="com.example.baigiamasisdarbas.fxControllers.adminUi.adminAds.AdminAdInformationFragment"
+        android:label="Naujienos informacija"
+        tools:layout="@layout/fragment_admin_ad_information">
+        <action
+            android:id="@+id/action_nav_admin_ad_information_to_nav_admin_ad"
+            app:destination="@id/nav_admin_ad" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_admin_ad_create"
+        android:name="com.example.baigiamasisdarbas.fxControllers.adminUi.adminAds.AdminAdCreationFragment"
+        android:label="Naujienos kūrimas"
+        tools:layout="@layout/fragment_admin_ad_creation">
+        <action
+            android:id="@+id/action_nav_admin_ad_create_to_nav_admin_ad"
+            app:destination="@id/nav_admin_ad" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_add_apartment"
+        android:name="com.example.baigiamasisdarbas.fxControllers.adminUi.adminApartments.AdminApartmentCreationFragment"
+        android:label="Daugiabučio pridėjimas"
+        tools:layout="@layout/fragment_admin_apartment_creation">
+        <action
+            android:id="@+id/action_nav_add_apartment_to_nav_admin_apartments"
+            app:destination="@id/nav_admin_apartments" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_admin_apartments"
+        android:name="com.example.baigiamasisdarbas.fxControllers.adminUi.adminApartments.AdminApartmentsFragment"
+        android:label="Daugiabučiai"
+        tools:layout="@layout/fragment_admin_apartments">
+        <action
+            android:id="@+id/action_nav_admin_apartments_to_nav_admin_apartments_information"
+            app:destination="@id/nav_admin_apartments_information" />
+        <action
+            android:id="@+id/action_nav_admin_apartments_to_nav_add_apartment"
+            app:destination="@id/nav_add_apartment" />
+        <action
+            android:id="@+id/action_nav_admin_apartments_self2"
+            app:destination="@id/nav_admin_apartments" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_admin_apartments_information"
+        android:name="com.example.baigiamasisdarbas.fxControllers.adminUi.adminApartments.AdminApartmentInformationFragment"
+        android:label="Daugiabučio informacija"
+        tools:layout="@layout/fragment_admin_apartment_information">
+        <action
+            android:id="@+id/action_nav_admin_apartments_information_to_nav_admin_apartments"
+            app:destination="@id/nav_admin_apartments" />
+        <action
+            android:id="@+id/action_nav_admin_apartments_information_to_nav_admin_request"
+            app:destination="@id/nav_admin_request" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_admin_request"
+        android:name="com.example.baigiamasisdarbas.fxControllers.adminUi.adminRequest.AdminRequestFragment"
+        android:label="Užklausos"
+        tools:layout="@layout/fragment_admin_home_page">
+        <action
+            android:id="@+id/action_nav_admin_request_to_nav_admin_request_information"
+            app:destination="@id/nav_admin_request_information" />
+        <action
+            android:id="@+id/action_nav_admin_request_self"
+            app:destination="@id/nav_admin_request" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_admin_request_information"
+        android:name="com.example.baigiamasisdarbas.fxControllers.adminUi.adminRequest.AdminRequestInformationFragment"
+        android:label="Užklausos informacija"
+        tools:layout="@layout/fragment_admin_request_information">
+        <action
+            android:id="@+id/action_nav_admin_request_information_to_nav_admin_request"
+            app:destination="@id/nav_admin_request" />
+    </fragment>
+
+
+</navigation>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "231259347077",
+    "project_id": "bakalauro-app",
+    "storage_bucket": "bakalauro-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:231259347077:android:e680b56b85c13bc97931ec",
+        "android_client_info": {
+          "package_name": "com.example.prisijungimasirregistracijasufirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "231259347077-r59h0449k7bvo7rn750fm6o5rnbpc1h3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5BHSQm1jG0-8UKEjT7qWTLth6iemFdPo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "231259347077-r59h0449k7bvo7rn750fm6o5rnbpc1h3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

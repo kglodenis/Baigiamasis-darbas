@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/nav_home_page">
+
+    <fragment
+        android:id="@+id/nav_schedule"
+        android:name="com.example.baigiamasisdarbas.fxControllers.ui.schedule.ScheduleFragment"
+        android:label="Valymo grafikas"
+        tools:layout="@layout/fragment_schedule">
+        <action
+            android:id="@+id/action_nav_schedule_to_nav_notification"
+            app:destination="@id/nav_notification" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_survey"
+        android:name="com.example.baigiamasisdarbas.fxControllers.ui.survey.SurveyFragment"
+        android:label="Apklausos"
+        tools:layout="@layout/fragment_survey">
+        <action
+            android:id="@+id/action_nav_survey_to_nav_survey_web"
+            app:destination="@id/nav_survey_web" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_survey_web"
+        android:name="com.example.baigiamasisdarbas.fxControllers.ui.survey.SurveyWebFragment"
+        android:label="Apklausa"
+        tools:layout="@layout/fragment_survey_web">
+        <action
+            android:id="@+id/action_nav_survey_web_to_nav_survey"
+            app:destination="@id/nav_survey" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_user_profile"
+        android:name="com.example.baigiamasisdarbas.fxControllers.ui.userEditor.UserEdit"
+        android:label="Paskyros nustatymai"
+        tools:layout="@layout/fragment_user_edit" />
+    <fragment
+        android:id="@+id/nav_apartment_info"
+        android:name="com.example.baigiamasisdarbas.fxControllers.ui.apartmentInfo.ApartmentInfo"
+        android:label="Daugiabučio informacija"
+        tools:layout="@layout/fragment_apartment_info" />
+    <fragment
+        android:id="@+id/nav_ad"
+        android:name="com.example.baigiamasisdarbas.fxControllers.ui.ads.AdFragment"
+        android:label="Naujienos"
+        tools:layout="@layout/fragment_ad" />
+    <fragment
+        android:id="@+id/nav_home_page"
+        android:name="com.example.baigiamasisdarbas.fxControllers.ui.homePage.HomePageFragment"
+
+        tools:layout="@layout/fragment_home_page">
+        <action
+            android:id="@+id/action_nav_home_page_to_nav_notification"
+            app:destination="@id/nav_notification"
+            app:popUpTo="@id/nav_home_page"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_nav_home_page_self"
+            app:destination="@id/nav_home_page"
+            app:popUpTo="@id/nav_home_page"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_nav_home_page_to_nav_user_profile"
+            app:destination="@id/nav_user_profile" />
+        <action
+            android:id="@+id/action_nav_home_page_to_nav_requests"
+            app:destination="@id/nav_requests"
+            app:popUpTo="@id/nav_home_page"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_nav_home_page_to_nav_forum"
+            app:destination="@id/nav_forum"
+            app:popUpTo="@id/nav_home_page"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_nav_home_page_to_nav_ad"
+            app:destination="@id/nav_ad"
+            app:popUpTo="@id/nav_home_page"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/nav_notification"
+        android:name="com.example.baigiamasisdarbas.fxControllers.ui.notifications.NotificationFragment"
+        android:label="Pranešimai"
+        tools:layout="@layout/fragment_notification">
+        <action
+            android:id="@+id/action_nav_notification_to_nav_requests_information"
+            app:destination="@id/nav_requests_information" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_requests"
+        android:name="com.example.baigiamasisdarbas.fxControllers.ui.request.RequestFragment"
+        android:label="Užklausos"
+        tools:layout="@layout/fragment_request">
+        <action
+            android:id="@+id/action_nav_requests_to_request_registration"
+            app:destination="@id/request_registration" />
+        <action
+            android:id="@+id/action_nav_requests_to_nav_requests_information"
+            app:destination="@id/nav_requests_information" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_requests_information"
+        android:name="com.example.baigiamasisdarbas.fxControllers.ui.request.RequestInformationFragment"
+        android:label="Užklausos informacija"
+        tools:layout="@layout/fragment_request_information">
+
+        <action
+            android:id="@+id/action_nav_requests_information_to_nav_requests"
+            app:destination="@id/nav_requests" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_forum"
+        android:name="com.example.baigiamasisdarbas.fxControllers.ui.forum.ForumFragment"
+        android:label="Forumas"
+        tools:layout="@layout/fragment_forum" />
+
+    <fragment
+        android:id="@+id/request_registration"
+        android:name="com.example.baigiamasisdarbas.fxControllers.ui.request.RequestRegistrationFragment"
+        android:label="Užklausos registracija"
+        tools:layout="@layout/fragment_request_registration">
+        <action
+            android:id="@+id/action_request_registration_to_nav_requests"
+            app:destination="@id/nav_requests" />
+    </fragment>
+</navigation>

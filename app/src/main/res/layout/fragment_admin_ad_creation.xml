@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout5"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fxControllers.adminUi.adminAds.AdminAdCreationFragment">
+
+    <EditText
+        android:id="@+id/adCompanyNameTextView"
+        android:layout_width="263dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="75dp"
+        android:background="@drawable/edit_field"
+        android:ems="10"
+        android:hint="Įmonės pavadinimas"
+        android:inputType="textPersonName"
+        android:paddingStart="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/adTitleTextView"
+        android:layout_width="263dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/edit_field"
+        android:ems="10"
+        android:hint="Pavadinimas"
+        android:inputType="textPersonName"
+        android:paddingStart="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/adCompanyNameTextView" />
+
+    <EditText
+        android:id="@+id/adDescriptionTextView"
+        android:layout_width="263dp"
+        android:layout_height="176dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/edit_field"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Aprašymas"
+        android:inputType="textMultiLine"
+        android:paddingStart="8dp"
+        android:paddingTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/adTitleTextView" />
+
+    <Spinner
+        android:id="@+id/apartmentsSpinner"
+        android:layout_width="262dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/edit_field"
+        android:foregroundTint="#DF2121"
+        android:paddingStart="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/adDescriptionTextView" />
+
+    <Button
+        android:id="@+id/createNewAdButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="161dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="160dp"
+        android:backgroundTint="#7f5539"
+        android:text="Sukurti"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/apartmentsSpinner" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
