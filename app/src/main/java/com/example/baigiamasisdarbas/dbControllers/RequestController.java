@@ -32,7 +32,7 @@ import java.util.Locale;
 
 public class RequestController {
     FirebaseAuth fAuth = FirebaseAuth.getInstance();
-    ;
+
     String userID;
     FirebaseFirestore fStore = FirebaseFirestore.getInstance();
     FirebaseStorage fStorage = FirebaseStorage.getInstance();
@@ -307,48 +307,60 @@ public class RequestController {
         Query heatQuery = requestsRef.whereEqualTo("requestType", "Šildymas");
         Query loudnessQuery = requestsRef.whereEqualTo("requestType", "Triukšmas");
         Query otherQuery = requestsRef.whereEqualTo("requestType", "Kita");
-        waterQuery.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+        UserController userController = new UserController();
+        userController.getCurrentUser(new OnGetDataListener<User>() {
             @Override
-            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                counts.add(new BarEntry(1, queryDocumentSnapshots.size()));
-                listener.onSuccess(counts);
+            public void onSuccess(User data) {
+                waterQuery.whereEqualTo("apartmentBuilding", data.getApartmentBuilding()).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        counts.add(new BarEntry(1, queryDocumentSnapshots.size()));
+                        listener.onSuccess(counts);
+                    }
+                });
+
+                electricityQuery.whereEqualTo("apartmentBuilding", data.getApartmentBuilding()).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        counts.add(new BarEntry(2, queryDocumentSnapshots.size()));
+                        listener.onSuccess(counts);
+                    }
+                });
+                cleannessQuery.whereEqualTo("apartmentBuilding", data.getApartmentBuilding()).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        counts.add(new BarEntry(3, queryDocumentSnapshots.size()));
+                        listener.onSuccess(counts);
+                    }
+                });
+                heatQuery.whereEqualTo("apartmentBuilding", data.getApartmentBuilding()).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        counts.add(new BarEntry(4, queryDocumentSnapshots.size()));
+                        listener.onSuccess(counts);
+                    }
+                });
+                loudnessQuery.whereEqualTo("apartmentBuilding", data.getApartmentBuilding()).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        counts.add(new BarEntry(5, queryDocumentSnapshots.size()));
+                        listener.onSuccess(counts);
+                    }
+                });
+                otherQuery.whereEqualTo("apartmentBuilding", data.getApartmentBuilding()).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        counts.add(new BarEntry(6, queryDocumentSnapshots.size()));
+                        listener.onSuccess(counts);
+                    }
+                });
+            }
+
+            @Override
+            public void onFailure(Exception e) {
+
             }
         });
 
-        electricityQuery.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-            @Override
-            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                counts.add(new BarEntry(2, queryDocumentSnapshots.size()));
-                listener.onSuccess(counts);
-            }
-        });
-        cleannessQuery.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-            @Override
-            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                counts.add(new BarEntry(3, queryDocumentSnapshots.size()));
-                listener.onSuccess(counts);
-            }
-        });
-        heatQuery.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-            @Override
-            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                counts.add(new BarEntry(4, queryDocumentSnapshots.size()));
-                listener.onSuccess(counts);
-            }
-        });
-        loudnessQuery.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-            @Override
-            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                counts.add(new BarEntry(5, queryDocumentSnapshots.size()));
-                listener.onSuccess(counts);
-            }
-        });
-        otherQuery.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-            @Override
-            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                counts.add(new BarEntry(6, queryDocumentSnapshots.size()));
-                listener.onSuccess(counts);
-            }
-        });
     }
 }

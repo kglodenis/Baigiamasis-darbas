@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.example.baigiamasisdarbas.R;
 import com.example.baigiamasisdarbas.dbControllers.AdController;
 import com.example.baigiamasisdarbas.dbControllers.OnGetDataListener;
+import com.example.baigiamasisdarbas.dbControllers.UserController;
 import com.example.baigiamasisdarbas.ds.Ad;
 
 import java.util.ArrayList;
@@ -33,10 +34,15 @@ public class AdFragment extends Fragment {
     }
 
     private void setAdapter() {
+
         AdController adController = new AdController();
         adController.getAllAds(new OnGetDataListener<ArrayList<Ad>>() {
             @Override
             public void onSuccess(ArrayList<Ad> data) {
+                if(data.isEmpty())
+                {
+                    System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+                }
                 AdRecyclerAdapter adapter = new AdRecyclerAdapter(data);
                 RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
                 recyclerView.setLayoutManager(layoutManager);

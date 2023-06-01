@@ -3,10 +3,13 @@ package com.example.baigiamasisdarbas.dbControllers;
 import androidx.annotation.NonNull;
 
 import com.example.baigiamasisdarbas.ds.Ad;
+import com.example.baigiamasisdarbas.ds.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
@@ -18,25 +21,39 @@ import java.util.ArrayList;
 public class AdController {
 
     FirebaseFirestore fStore = FirebaseFirestore.getInstance();
+    FirebaseAuth fAuth = FirebaseAuth.getInstance();
+
+    FirebaseUser currentUser = fAuth.getCurrentUser();
 
     public void getAllAds(final OnGetDataListener<ArrayList<Ad>> listener) {
-
-        fStore.collection("Ads").orderBy("date", Query.Direction.DESCENDING).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        UserController userController = new UserController();
+        userController.getCurrentUser(new OnGetDataListener<User>() {
             @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if (task.isSuccessful()) {
-                    ArrayList<Ad> ads = new ArrayList<>();
-                    for (QueryDocumentSnapshot document : task.getResult()) {
-                        Ad ad = document.toObject(Ad.class);
-                        ads.add(ad);
-                        listener.onSuccess(ads);
-                    }
-                } else {
+            public void onSuccess(User data) {
+                fStore.collection("Ads").whereEqualTo("apartment", data.getApartmentBuilding()).orderBy("date", Query.Direction.DESCENDING).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            ArrayList<Ad> ads = new ArrayList<>();
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Ad ad = document.toObject(Ad.class);
+                                ads.add(ad);
+                                listener.onSuccess(ads);
+                            }
+                        } else {
 
-                    listener.onSuccess(null);
-                }
+                            listener.onSuccess(null);
+                        }
+                    }
+                });
+            }
+
+            @Override
+            public void onFailure(Exception e) {
+
             }
         });
+
     }
 
     public void createAd(Ad ad, final OnGetDataListener<String> listener) {

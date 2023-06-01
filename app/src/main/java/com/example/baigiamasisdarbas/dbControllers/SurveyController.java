@@ -3,6 +3,7 @@ package com.example.baigiamasisdarbas.dbControllers;
 import androidx.annotation.NonNull;
 
 import com.example.baigiamasisdarbas.ds.Survey;
+import com.example.baigiamasisdarbas.ds.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -39,27 +40,39 @@ public class SurveyController {
     }
 
     public void getAllSurveys(final OnGetDataListener<ArrayList<Survey>> listener) {
-        fStore.collection("Surveys").orderBy("creationDate", Query.Direction.DESCENDING).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            ArrayList<Survey> surveys = new ArrayList<>();
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                Survey survey = document.toObject(Survey.class);
-                                surveys.add(survey);
-                                listener.onSuccess(surveys);
+        UserController userController = new UserController();
+        userController.getCurrentUser(new OnGetDataListener<User>() {
+            @Override
+            public void onSuccess(User data) {
+                fStore.collection("Surveys").whereEqualTo("apartment", data.getApartmentBuilding()).orderBy("creationDate", Query.Direction.DESCENDING).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                if (task.isSuccessful()) {
+                                    ArrayList<Survey> surveys = new ArrayList<>();
+                                    for (QueryDocumentSnapshot document : task.getResult()) {
+                                        Survey survey = document.toObject(Survey.class);
+                                        surveys.add(survey);
+                                        listener.onSuccess(surveys);
+                                    }
+                                } else {
+                                    listener.onSuccess(null);
+                                }
                             }
-                        } else {
-                            listener.onSuccess(null);
-                        }
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        listener.onFailure(e);
-                    }
-                });
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                listener.onFailure(e);
+                            }
+                        });
+            }
+
+            @Override
+            public void onFailure(Exception e) {
+
+            }
+        });
+
     }
 
     public void updateSurvey(Survey survey, final OnGetDataListener<String> listener) {
